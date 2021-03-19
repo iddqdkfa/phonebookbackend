@@ -71,12 +71,13 @@ let persons = [
   })
 
 
+
   
   app.delete('/api/delete/:id', (request, response) => {
     
     morgan.token('type', function (req, res) { 
 
-      return JSON.stringify(null) })
+      return JSON.stringify('test') })
     console.log("I am in delete")
   const id = Number(request.params.id)
   persons = persons.filter(person => person.id !== id)
@@ -87,7 +88,7 @@ let persons = [
 app.get('/api/persons', (request, response) => {
   morgan.token('type', function (req, res) { 
 
-    return JSON.stringify(null) })
+    return JSON.stringify('test') })
     console.log(response.body)
   response.json(persons)
 })
@@ -95,7 +96,7 @@ app.get('/api/persons', (request, response) => {
 app.get('/api/persons/:id', (request, response) => {
   morgan.token('type', function (req, res) { 
 
-    return JSON.stringify(null) })
+    return JSON.stringify('test') })
     const id = Number(request.params.id)
     console.log(id)
     const person = persons.find(person => person.id === id)
@@ -113,13 +114,15 @@ app.get('/api/persons/:id', (request, response) => {
 app.get('/info', (request, response) => {
   morgan.token('type', function (req, res) { 
 
-    return JSON.stringify(null) })
+    return JSON.stringify('test') })
     let count = persons.length;
 
     let date = new Date()
 
   response.send(`<p>Phonebook has infor for ${count} people</p> <p>${date}</p>`)
 })
+
+
 
 
 const PORT = process.env.PORT || 3001
