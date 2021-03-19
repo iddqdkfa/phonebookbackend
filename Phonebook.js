@@ -183,7 +183,7 @@ person.save()
  // response.status(204).end()
 })
 
-app.get('/api/persons', (request, response) => {
+app.get('/api/persons', (request, response, next) => {
 
   
   morgan.token('type', function (req, res) { 
